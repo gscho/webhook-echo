@@ -43,8 +43,8 @@ func main() {
 			c.String(http.StatusBadRequest, "failed to get stream data")
 		} else {
 			if !json.Valid(jsonData) {
-				log.Error().RawJSON("raw-json", jsonData).Msg("Invalid json received")
-				c.String(http.StatusBadRequest, "Invalid json received")
+				log.Error().RawJSON("raw-json", jsonData).Msg("invalid json received")
+				c.String(http.StatusBadRequest, "invalid json received")
 			} else {
 				log.Debug().RawJSON("raw-json", jsonData).Msg("success")
 				c.Data(http.StatusOK, gin.MIMEJSON, jsonData)
